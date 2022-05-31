@@ -1,0 +1,28 @@
+<div class="bg-green" ng-controller = 'ConverstionHeaderController'>
+  <div class="header-section">
+    <div class="header-content">
+      <div ng-if = "url" class="img-item header-img-content">
+        <div class="back">
+          <span ng-click = "backButton()" class="ion-android-arrow-back text-white backIcon"></span>
+        </div>
+        <img src="../images/img_avatar.png" class="ml" alt="" srcset="">
+      </div>
+      <div ng-if = "convesrtionURL" class="img-item header-img-content">
+        <div class="back">
+          <span ng-click = "backButton()" class="ion-android-arrow-back text-white backIcon"></span>
+        </div>
+        <img src="{{imgconvesrtion}}" class="ml" alt="" srcset="">
+      </div>
+      <div class="pl-2">
+        <h4 class="text-white">{{user}}</h4>
+        <span class="text-white time">2:30 PM</span>
+      </div>
+   </div>
+   <div class="pr-5">
+     <span class="ion-ios-videocam text-white icon"></span>
+     <span class="ion-android-call pl-2 text-white icon"></span>
+     <span class="ion-android-attach pl-2 text-white icon"></span>
+   </div>
+</div>
+
+<ion-nav-view></ion-nav-view>

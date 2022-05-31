@@ -1,0 +1,44 @@
+<div class="bg-green" ng-controller = "HomeController">
+
+  <div class="bg-green">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-title">WhatsApp</span>
+      </div>
+      <div class="search">
+        <i class="ion-search icons"></i>
+        <i class="ion-document ml-2 icons" ng-click="openPopover($event)"></i>
+      </div>
+    </div>
+    <!-- transparent -->
+    <div class="tabs-striped tabs-top">
+      <div class="tabs">
+        <span ng-style="activeChat == true && {'border-color':'#fff'} || activeChat == false && {'border-color':'transparent'}" class="tab-item myColor" id="chat" ng-click = "goToPage('chats')">
+          Chats
+        </span>
+        <span class="tab-item myColor" id="status" ng-click = "goToPage('status')" id = "status">
+          Status
+        </span>
+        <span class="tab-item myColor" ng-click = "goToPage('calls')" id="calls">
+          Calls
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <script id="my-popover.html" type="text/ng-template">
+    <ion-popover-view>
+
+        <p class = "padding" ng-click = "newGroup()">New Group</p>
+        <p class = "padding" ng-click = "newBroadCast()">New broadcast</p>
+        <p class = "padding" ng-click = "linkDevices()">Linked devices</p>
+        <p class = "padding" ng-click = "starredMessages()">Starred messages</p>
+        <p class = "padding" ng-click = "setting()">Setting</p>
+
+    </ion-popover-view>
+  </script>
+
+  <ion-nav-view></ion-nav-view>
+</div>
+

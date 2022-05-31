@@ -28,97 +28,59 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('chats' , {
     url : '/chats' ,
-    templateUrl : 'templates/Chats.html',
-    controller : 'ChatController'
+    views : {
+      'chat-header' : {
+        templateUrl : 'templates/hompage.html',
+      } ,
+      'chat-content' : {
+        templateUrl : 'templates/Chats.html',
+        controller : 'ChatController'
+      }
+    }
   })
   .state('status',{
     url : '/status',
-    templateUrl : 'templates/Status.html',
-    controller : 'StatusController'
+
+    views : {
+      'status-header' : {
+        templateUrl : 'templates/hompage.html',
+      } ,
+      'status-content' : {
+        templateUrl : 'templates/Status.html',
+        controller : 'StatusController'
+      }
+    }
   })
   .state('calls',{
     url : '/calls',
-    templateUrl : 'templates/Calls.html',
-    controller : 'CallController'
+    views : {
+      'call-header' : {
+        templateUrl : 'templates/hompage.html',
+      } ,
+      'call-content' : {
+        templateUrl : 'templates/Calls.html',
+        controller : 'CallController'
+      }
+    }
+  })
+
+  .state('converstion',{
+    url : '/converstion/:fName',
+    views : {
+      'conv-header' : {
+        templateUrl : 'templates/converstion-header.html',
+      } ,
+      'conv-content' : {
+        templateUrl : 'templates/converstion-page.html',
+        controller : 'ConverstionController'
+      }
+    }
   })
 
 
 
 
-  //  $urlRouterProvider.otherwise("/home");
+   $urlRouterProvider.otherwise("/chats");
 
 })
 
-app.controller('ctr' , function($scope, $ionicPopover , $state , $ionicViewService) {
-
-  $scope.image = window.location.host;
-
-  let chat = document.getElementById("chat");
-  let status = document.getElementById("status");
-  let calls = document.getElementById("calls");
-
-  var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
-
-  $scope.popover = $ionicPopover.fromTemplate(template, {
-    scope: $scope
-  });
-
-  $scope.show = function() {
-    alert("welcime")
-  }
-
-  $scope.newGroup = function() {
-    alert("new Group")
-  }
-
-  $scope.newBroadCast = function() {
-    alert("newBroadCast")
-  }
-
-  $scope.linkDevices = function() {
-    alert("linkDevices");
-  }
-
-  $scope.starredMessages = function() {
-    alert("starredMessages")
-  }
-
-  $state.go("chats")
-
-
- $scope.goToPage = function(page) {
-   if(page === 'chats') {
-     chat.classList.add('active');
-     status.classList.remove("active");
-     calls.classList.remove("active");
-   } else if(page === "status") {
-    chat.classList.remove('active');
-    status.classList.add("active");
-    calls.classList.remove("active");
-   } else {
-    chat.classList.remove('active');
-    status.classList.remove("active");
-    calls.classList.add("active");
-   }
-   $ionicViewService.nextViewOptions({
-    disableBack: true
-});
-   $state.go(page, {})
- }
-
-  // .fromTemplateUrl() method
-  $ionicPopover.fromTemplateUrl('my-popover.html', {
-    scope: $scope
-  }).then(function(popover) {
-    $scope.popover = popover;
-  });
-
-
-  $scope.openPopover = function($event) {
-    $scope.popover.show($event);
-  };
-  $scope.closePopover = function() {
-    $scope.popover.hide();
-  };
-
-})

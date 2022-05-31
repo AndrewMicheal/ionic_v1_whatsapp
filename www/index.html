@@ -34,51 +34,18 @@
     <script src="js/Controllers/ChatController.js"></script>
     <script src="js/Controllers/StatusController.js"></script>
     <script src="js/Controllers/CallController.js"></script>
-    <script src="js/Controllers/MessageController.js"></script>
+    <script src="js/Controllers/HomeController.js"></script>
+    <script src="js/Controllers/ConverstionController.js"></script>
+    <script src="js/Controllers/ConverstionHeaderController.js"></script>
   </head>
-  <body ng-app="starter" ng-controller = "ctr">
-
-
-
-    <div class="bg-green">
-      <div class="header">
-        <div class="logo">
-          <span class="logo-title">WhatsApp</span>
-        </div>
-        <div class="search">
-          <i class="ion-search icons"></i>
-          <i class="ion-document ml-2 icons" ng-click="openPopover($event)"></i>
-        </div>
-      </div>
-      <div class="tabs-striped tabs-top">
-        <div class="tabs">
-          <span class="tab-item myColor active" id="chat" ng-click = "goToPage('chats')">
-            Chats
-          </span>
-          <span class="tab-item myColor" ng-click = "goToPage('status')" id = "status">
-            Status
-          </span>
-          <span class="tab-item myColor" ng-click = "goToPage('calls')" id="calls">
-            Calls
-          </span>
-        </div>
-      </div>
-    </div>
-
-
-    <script id="my-popover.html" type="text/ng-template">
-      <ion-popover-view>
-        <ion-content>
-          <p class = "padding" ng-click = "newGroup()">New Group</p>
-          <p class = "padding" ng-click = "newBroadCast()">New broadcast</p>
-          <p class = "padding" ng-click = "linkDevices()">Linked devices</p>
-          <p class = "padding" ng-click = "starredMessages()">Starred messages</p>
-          <p class = "padding" ng-click = "setting()">Setting</p>
-        </ion-content>
-      </ion-popover-view>
-    </script>
-
-    <ion-nav-view></ion-nav-view>
-
+  <body ng-app="starter">
+    <div ui-view = "chat-header"></div>
+    <div ui-view = "chat-content"></div>
+    <div ui-view = "status-header"></div>
+    <div ui-view = "status-content"></div>
+    <div ui-view = "call-header"></div>
+    <div ui-view = "call-content"></div>
+    <div ui-view = "conv-header"></div>
+    <div ui-view = "conv-content"></div>
   </body>
 </html>

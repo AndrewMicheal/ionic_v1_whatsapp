@@ -1,6 +1,6 @@
 let ChatController = angular.module('starter');
 
-ChatController.controller('ChatController' , function($scope) {
+ChatController.controller('ChatController' , function($scope ,$state) {
   var loc = window.location.href;
   $scope.url = loc.includes("localhost");
 
@@ -16,5 +16,11 @@ ChatController.controller('ChatController' , function($scope) {
     $scope.$broadcast('scroll.infiniteScrollComplete');
     $scope.check = true
   }, 1000;
+
+  $scope.goToChat = function(user) {
+    $scope.item = user;
+
+    $state.go('converstion',{fName:$scope.item})
+  }
 
 })
